@@ -10,10 +10,10 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from lifelines.utils import concordance_index
-from data_loader import MyDataset
-from data_loader import preprocess_clinical_data
-import utils
-from model import Model
+from models.data_loader import MyDataset
+from models.data_loader import preprocess_clinical_data
+import models.utils as utils
+from models.model import Model
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
 
@@ -28,7 +28,7 @@ K = 5
 
 data_path = utils.DATA_PATH
 
-modalities_list = [['clinical', 'miRNA', 'mRNA']]
+modalities_list = [['clinical', 'miRNA']]
 
 # setup random seed
 utils.setup_seed(24)

@@ -12,10 +12,10 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from lifelines.utils import concordance_index
-from data_loader import MyDataset
-from data_loader import preproess_clinical_data
-import utils
-from model import Model
+from models.data_loader import MyDataset
+from models.data_loader import preprocess_clinical_data
+import models.utils as utils
+from models.model import Model
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
 
@@ -31,11 +31,12 @@ SEED = 24
 data_path = utils.DATA_PATH
 
 # selected modalities
-modalities_list = [['clinical', 'miRNA', 'mRNA']]
+modalities_list = [['clinical', 'miRNA', 'mRNA', 'CNV']]
 
 # selected cancer types
-tested_cancer_type = ['BLCA', 'BRCA', 'CESC', 'COADREAD', 'HNSC', 'KICH', 'KIRC', 'KIRP', 'LAML', 'LGG',
-						'LIHC', 'LUAD', 'LUSC', 'OV', 'PAAD', 'PRAD', 'SKCM', 'STAD', 'THCA', 'UCEC']
+# tested_cancer_type = ['BLCA', 'BRCA', 'CESC', 'COADREAD', 'HNSC', 'KICH', 'KIRC', 'KIRP', 'LAML', 'LGG',
+# 						'LIHC', 'LUAD', 'LUSC', 'OV', 'PAAD', 'PRAD', 'SKCM', 'STAD', 'THCA', 'UCEC']
+tested_cancer_type = ['OV']
 
 # Cancer type embedded index
 cancer_type_dic = {'ACC': 0, 'BLCA': 1, 'BRCA': 2, 'CESC': 3, 'CHOL': 4, 'COAD': 5, 'DLBC': 6, 'ESCA': 7, 'GBM': 8, 'HNSC': 9,

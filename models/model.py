@@ -3,11 +3,11 @@
 
 import os
 
-from net import Net
+from .net import Net
 import torch
 from torch.optim import Adam
-from loss import Loss
-from model_coach import ModelCoach
+from .loss import Loss
+from .model_coach import ModelCoach
 
 class _BaseModelWithDataLoader:
 	def __init__(self, modalities, m_length, dataloaders, fusion_method='attention', device=None):

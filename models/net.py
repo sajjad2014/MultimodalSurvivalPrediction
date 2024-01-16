@@ -7,12 +7,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from sub_models.mirnaNet import MirnaNet
-from sub_models.mrnaNet import MrnaNet
-from sub_models.cnvNet import CnvNet
-from sub_models.clinicalEmbeddingNet import ClinicalEmbeddingNet
-from sub_models.attention import Attention
-from sub_models.fixedAttention import FixedAttention
+from .sub_models.mirnaNet import MirnaNet
+from .sub_models.mrnaNet import MrnaNet
+from .sub_models.cnvNet import CnvNet
+from .sub_models.clinicalEmbeddingNet import ClinicalEmbeddingNet
+from .sub_models.attention import Attention
+from .sub_models.fixedAttention import FixedAttention
 
 class Net(nn.Module):
 	def __init__(self, modalities, m_length, fusion_method='attention', device=None,

@@ -10,11 +10,18 @@ from torch.utils.data import DataLoader
 
 
 # The dictionary of the input data path
-DATA_PATH = {'clinical': '/mnt/preprocess/preprocessed_data/Pc_clinical_emb.csv',
-			'mRNA': '/mnt/preprocess/preprocessed_data/PC_mRNA_threshold_7.csv',
-			'miRNA': '/mnt/preprocess/preprocessed_data/PC_miRNA.csv',
-			'CNV': '/mnt/preprocess/preprocessed_data/PC_CNV_threshold_20.csv'}
-
+# DATA_PATH = {'clinical': './preprocess/data_archive/Pc_clinical_emb.csv',
+# 			'mRNA': './preprocess/data_archive/PC_mRNA_threshold_7.csv',
+# 			'miRNA': './preprocess/data_archive/PC_miRNA.csv',
+# 			'CNV': './preprocess/data_archive/PC_CNV_threshold_20.csv'}
+# DATA_PATH = {'clinical': './preprocess/preprocessed_data/Pc_clinical_emb.csv',
+# 			'mRNA': './preprocess/preprocessed_data/PC_mRNA_threshold_7.csv',
+# 			'miRNA': './preprocess/preprocessed_data/PC_miRNA.csv',
+			# 'CNV': './preprocess/preprocessed_data/PC_CNV_threshold_20.csv'}
+DATA_PATH = {'clinical': './preprocess/preprocessed_data/Pc_clinical_emb_OV.csv',
+			'mRNA': './preprocess/preprocessed_data/PC_mRNA_threshold_1000000_OV.csv',
+			'miRNA': './preprocess/preprocessed_data/PC_miRNA_OV.csv',
+			'CNV': './preprocess/preprocessed_data/PC_CNV_threshold_45_OV.csv'}
 
 def setup_seed(seed):
 	"""

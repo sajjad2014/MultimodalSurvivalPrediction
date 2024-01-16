@@ -9,7 +9,7 @@ from collections import Counter
 from sklearn.preprocessing import LabelEncoder
 
 
-CLINICAL_PATH = '/data/PanCancer_Clinical.xlsx'
+CLINICAL_PATH = './data/TCGA-CDR-SupplementalTableS1.xlsx'
 
 # Read clinical data
 data = pd.read_excel(CLINICAL_PATH)
@@ -56,16 +56,16 @@ print(embedding_sizes)
 
 
 # concate the categorical data and continuous data
-df = pd.concat([data_id, data_cate], 1)
-df = pd.concat([df, data_num], 1)
-df = pd.concat([df, target], 1)
+df = pd.concat([data_id, data_cate], axis=1)
+df = pd.concat([df, data_num], axis=1)
+df = pd.concat([df, target], axis=1)
 
 # print('sample size: ', len(set(df['id'].values.tolist())))
 # leng = [len(i) for i in df['id'].values.tolist()]
 # print(set(leng))
 
 #Save data
-df.to_csv('/preprocessed_data/Pc_clinical_emb.csv', header=False, index=False)
+df.to_csv('./preprocessed_data/Pc_clinical_emb.csv', header=False, index=False)
 
 
 
